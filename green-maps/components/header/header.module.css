@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: center;
+    background-color: #19E46F;
+    color: #0F141A;
+    font-size: 1.1em;
+    padding: 5px 0;
+}
+
+.header h1{
+    font-weight: 400;
+}

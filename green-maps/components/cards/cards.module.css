@@ -1,0 +1,40 @@
+.card{
+    cursor: pointer;
+    width: 500px;
+    border: 2px solid #19E46F;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+}
+
+.card div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card img{
+    border-radius: 8px;
+}
+
+
+.card h1{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.card h2{
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+.card:hover{
+    background-color: #19e46e1e;
+}
+
+.card:active{
+    background-color: transparent;
+}
