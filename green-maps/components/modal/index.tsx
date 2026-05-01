@@ -1,18 +1,9 @@
 import Image from 'next/image'
 import style from './modal.module.css'
 import Link from 'next/link'
+import { ModalTypes } from '@/types/type'
 
-type Types = {
-    img: string,
-    local: string,
-    cidade: string,
-    endereco: string,
-    tipoDescarte: string,
-    localizacao: string,
-    fechar: () => void,
-}
-
-const Modal = (props: Types) => {
+const Modal = (props: ModalTypes) => {
     
     return(
         <dialog open className={style.modal}>

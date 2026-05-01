@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Card from '../cards'
 import Modal from '../modal'
 import style from './listaLocais.module.css'
+import { LocalType } from '@/types/type'
 
 const locais = [
     {
@@ -40,9 +41,9 @@ const locais = [
 
 const ListaLocais = () => {
     const [modal, setModal] = useState(false);
-    const [modalItem, setModalItem] = useState<any>(null);
+    const [modalItem, setModalItem] = useState<LocalType | null>(null);
 
-    const abrirModal = (item: any) => { setModalItem(item), setModal(true) }
+    const abrirModal = (item: LocalType) => { setModalItem(item), setModal(true) }
     const fecharModal = () => { setModal(false) }
 
     return(
@@ -58,7 +59,7 @@ const ListaLocais = () => {
                 </div>
             ))}
 
-            {modal ? 
+            {modal && modalItem ? 
                 <Modal
                     cidade={modalItem.cidade}
                     endereco={modalItem.endereco}

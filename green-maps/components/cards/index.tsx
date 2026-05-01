@@ -1,13 +1,8 @@
 import Image from 'next/image'
 import style from './cards.module.css'
+import { CardType } from '@/types/type'
 
-type Types = {
-    img: string,
-    local: string,
-    cidade: string,
-}
-
-const Card = (props: Types) => {
+const Card = (props: CardType) => {
     return(
         <button className={style.card}>
             <Image src={props.img} alt='' width={70} height={70}></Image>

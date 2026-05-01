@@ -1,15 +1,12 @@
-import style from './header.module.css'
+import style from './header.module.css';
+import { HeaderTypes } from '@/types/type';
 
-type Types = {
-    title: string
-}
-
-const Header = (props: Types) => {
+const Header = (props: HeaderTypes) => {
     return(
         <div className={style.header}>
             <h1>{props.title}</h1>
         </div>
     )
-}
+};
 
-export default Header
+export default Header;
