@@ -1,7 +1,7 @@
 .card{
     cursor: pointer;
-    max-width: 500px;
-    min-width: 350px;
+    width: 500px;
+    max-width: 350px;
     border: 2px solid #19E46F;
     border-radius: 10px;
     background-color: transparent;

@@ -14,7 +14,7 @@ const locais = [
         cidade: 'Colinas do Tocantins',
         endereco: 'Avenida Bernado Sayão 1023',
         tipoDescarte: 'Lixo Eletrônico',
-        localizacao: 'https://www.google.com/maps/dir/?api=1&destination=-8.058253, -48.476620'
+        localizacao: 'https://www.google.com/maps/dir/?api=1&destination=-8.051737, -48.485852'
     },
 
     {
@@ -24,7 +24,7 @@ const locais = [
         cidade: 'Colinas do Tocantins',
         endereco: 'Avenida Bernado Sayão 1023',
         tipoDescarte: 'Lixo Eletrônico',
-        localizacao: 'https://www.google.com/maps/dir/?api=1&destination=-8.058253, -48.476620'
+        localizacao: 'https://www.google.com/maps/dir/?api=1&destination=-8.052167, -48.476514'
     },
 
     {
