@@ -1,0 +1,98 @@
+.ewaste {
+  background: var(--bg);
+  padding: 7rem 4rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.1);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ewaste::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
+}
+
+.ewasteInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ewasteStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.estat {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.estat:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+  transform: translateX(6px);
+}
+
+.estatIcon {
+  font-size: 1.5rem;
+  min-width: 40px;
+}
+
+.estatNum {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.estatLabel {
+  font-size: 0.8rem;
+  color: var(--gray2);
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .ewaste {
+    padding: 5rem 1.5rem;
+  }
+  .ewasteInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+
+.ewasteCanvas {
+  display: block;
+  border-radius: 16px;
+  background: rgba(56, 189, 248, 0.03);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  width: 100%;
+  height: auto;
+}
+.ewasteScanlines {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(56, 189, 248, 0.02) 0px, rgba(56, 189, 248, 0.02) 1px, transparent 1px, transparent 3px);
+}
+.ewasteVisual {
+  position: relative;
+}

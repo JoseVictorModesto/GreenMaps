@@ -1,0 +1,75 @@
+.stats {
+  background: var(--bg);
+  padding: 7rem 4rem;
+  position: relative;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.statCard {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.5s;
+  transition-delay: calc(var(--i) * 0.1s);
+}
+
+.statCard.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.statNum {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 40px rgba(25, 228, 111, 0.4);
+}
+
+.statUnit {
+  font-size: 1.2rem;
+  color: var(--gray2);
+  font-weight: 400;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--gray2);
+  margin-top: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.statBarWrap {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.statBar {
+  height: 100%;
+  background: var(--green);
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+  box-shadow: 0 0 8px var(--green);
+}
+
+@media (max-width: 768px) {
+  .stats {
+    padding: 5rem 1.5rem;
+  }
+}

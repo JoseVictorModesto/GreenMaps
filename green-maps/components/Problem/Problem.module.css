@@ -1,0 +1,225 @@
+.problem {
+  background: var(--bg);
+  padding: 7rem 4rem;
+  position: relative;
+}
+
+.problemGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+/* =========================
+   PROBLEM CARDS
+========================= */
+
+.problemCard {
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    border-color 0.3s ease;
+
+  transition-delay: calc(var(--i) * 0.1s);
+
+  cursor: default;
+
+  will-change: opacity, transform;
+}
+
+/* IMPORTANTE:
+   visible precisa ser global
+   para funcionar com JS + CSS Modules
+*/
+.problemCard:global(.visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.problemCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    var(--green-a) 0%,
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  pointer-events: none;
+}
+
+.problemCard:hover::before {
+  opacity: 1;
+}
+
+/* Hover somente após visível */
+.problemCard:global(.visible):hover {
+  border-color: rgba(25, 228, 111, 0.25);
+  transform: translateY(-4px);
+}
+
+.cardIcon {
+  font-size: 2rem;
+
+  margin-bottom: 1.2rem;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardStat {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 800;
+
+  color: var(--green);
+
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  margin-bottom: 0.5rem;
+}
+
+.cardLabel {
+  font-size: 0.8rem;
+
+  color: var(--gray2);
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  color: var(--gray1);
+}
+
+/* =========================
+   DECOMPOSITION TIMELINE
+========================= */
+
+.decompTimeline {
+  margin-top: 5rem;
+  max-width: 800px;
+}
+
+.decompItem {
+  display: flex;
+  align-items: center;
+
+  gap: 1.5rem;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+  opacity: 0;
+  transform: translateX(-15px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+
+  transition-delay: calc(var(--i) * 0.08s);
+
+  will-change: opacity, transform;
+}
+
+/* visible global */
+.decompItem:global(.visible) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.decompIcon {
+  font-size: 1.5rem;
+
+  min-width: 40px;
+
+  text-align: center;
+}
+
+.decompName {
+  font-size: 0.9rem;
+
+  color: var(--gray1);
+
+  min-width: 160px;
+}
+
+.decompBarWrap {
+  flex: 1;
+
+  height: 6px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 3px;
+
+  overflow: hidden;
+}
+
+.decompBar {
+  height: 100%;
+  width: 0;
+
+  border-radius: 3px;
+
+  transition:
+    width 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+
+  will-change: width;
+}
+
+.decompTime {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  min-width: 90px;
+
+  text-align: right;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .problem {
+    padding: 5rem 1.5rem;
+  }
+
+  .decompItem {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .decompName {
+    min-width: 120px;
+  }
+}

@@ -1,19 +1,25 @@
-import Header from "@/components/header";
-import Image from "next/image";
-import Link from "next/link";
+import Nav from '@/components/Nav/Nav'
+import Hero from '@/components/Hero/Hero'
+import Problem from '@/components/Problem/Problem'
+import Ewaste from '@/components/Ewaste/Ewaste'
+import Quiz from '@/components/Quiz/Quiz'
+import Stats from '@/components/Stats/Stats'
+import Benefits from '@/components/Benefits/Benefits'
+import Cta from '@/components/Cta/Cta'
+import Footer from '@/components/Footer/Footer'
 
 export default function Home() {
   return (
-    <section className="containerHome">
-      <Header title="Bem vindo"></Header>
-      <div className="divHome">
-        <Image src={'/logo_green_maps.png'} width={500} height={500} alt="Logo APP" priority></Image>
-        <h1>Conectando você a um futuro mais limpo.</h1>
-        <Link href={'/locais'}>Ver Mais...</Link>
-      </div>
-      <footer>
-        <h1>Um projeto desenvolvido por alunos do IFTO Campus Colinas Do Tocantins</h1>
-      </footer>
-    </section>
-  );
+    <main>
+      <Nav />
+      <Hero />
+      <Problem />
+      <Ewaste />
+      <Quiz />
+      <Stats />
+      <Benefits />
+      <Cta />
+      <Footer />
+    </main>
+  )
 }

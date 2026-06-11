@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from 'next/font/google';
 import "./globals.css";
+import AnimationObserver from '@/components/AnimationObserver/AnimationObserver';
 
 const montserrat = Montserrat({
   weight: ['100', '200','300','400', '500', '600', '700'],
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="pt-br">
       <body className={`${montserrat.className} min-h-full flex flex-col`}>
         {children}
+         <AnimationObserver />
       </body>
     </html>
   );

@@ -1,0 +1,447 @@
+.quiz {
+  background: var(--bg2);
+  padding: 7rem 4rem;
+  position: relative;
+}
+
+.quizWrap {
+  max-width: 680px;
+  margin: 4rem auto 0;
+}
+
+/* =========================
+   QUIZ CARD
+========================= */
+
+.quizQuestion {
+  background: var(--bg3);
+
+  border: 1px solid rgba(25, 228, 111, 0.12);
+  border-radius: 20px;
+
+  padding: 2.5rem;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    border-color 0.3s ease;
+
+  will-change: opacity, transform;
+}
+
+/* IMPORTANTE:
+   visible precisa ser global
+*/
+.quizQuestion:global(.visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quizQ {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.quizOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quizOpt {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  padding: 1rem 1.25rem;
+
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  text-align: left;
+
+  color: var(--gray1);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+
+  will-change: transform;
+}
+
+.quizOpt:hover:not(:disabled) {
+  background: var(--green-a);
+  border-color: rgba(25, 228, 111, 0.3);
+
+  color: var(--white);
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   STATES
+========================= */
+
+/* CORRETO */
+.quizOpt:global(.correct),
+.quizOpt.correct {
+  background: rgba(25, 228, 111, 0.15);
+
+  border-color: var(--green);
+
+  color: var(--green);
+}
+
+/* ERRADO */
+.quizOpt:global(.wrong),
+.quizOpt.wrong {
+  background: rgba(239, 68, 68, 0.1);
+
+  border-color: var(--red);
+
+  color: var(--red);
+}
+
+/* DESABILITADO */
+.quizOpt:disabled,
+.quizOpt:global(.disabled) {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.quizFeedback {
+  margin-top: 1.5rem;
+
+  padding: 1rem 1.25rem;
+
+  border-radius: 10px;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  will-change: opacity, transform;
+}
+
+/* show precisa ser global */
+.quizFeedback:global(.show),
+.quizFeedback.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* feedback correto */
+.quizFeedback:global(.correct),
+.quizFeedback.correct {
+  background: rgba(25, 228, 111, 0.1);
+
+  border: 1px solid rgba(25, 228, 111, 0.2);
+
+  color: var(--green);
+}
+
+/* feedback errado */
+.quizFeedback:global(.wrong),
+.quizFeedback.wrong {
+  background: rgba(239, 68, 68, 0.08);
+
+  border: 1px solid rgba(239, 68, 68, 0.15);
+
+  color: #fca5a5;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.quizNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 2rem;
+}
+
+.quizScore {
+  font-size: 0.85rem;
+  color: var(--gray2);
+}
+
+.quizScore span {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.quizNext {
+  background: var(--green-a);
+
+  border: 1px solid rgba(25, 228, 111, 0.3);
+  border-radius: 100px;
+
+  padding: 0.6rem 1.5rem;
+
+  cursor: pointer;
+
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  color: var(--green);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+
+  will-change: transform, opacity;
+}
+
+/* show precisa ser global */
+.quizNext:global(.show),
+.quizNext.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.quizNext:hover:not(:disabled) {
+  background: var(--green);
+
+  color: var(--bg);
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   DRAG & DROP
+========================= */
+
+.ddWrap {
+  margin-top: 4rem;
+}
+
+.ddItems {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  min-height: 80px;
+
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  border: 1.5px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.ddItem {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  user-select: none;
+
+  background: var(--bg3);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+
+  padding: 0.6rem 1.1rem;
+
+  font-size: 0.85rem;
+
+  cursor: grab;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ddItem:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.ddItem:active {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
+
+.ddBins {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+  gap: 1rem;
+}
+
+.ddBin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  min-height: 130px;
+
+  padding: 1.5rem 1rem;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+/* over precisa ser global */
+.ddBin:global(.over),
+.ddBin.over {
+  transform: scale(1.04);
+}
+
+/* =========================
+   BIN COLORS
+========================= */
+
+.ddBin[data-bin="papel"] {
+  background: rgba(59, 130, 246, 0.06);
+  border: 1.5px dashed rgba(59, 130, 246, 0.25);
+}
+
+.ddBin[data-bin="plástico"] {
+  background: rgba(250, 204, 21, 0.05);
+  border: 1.5px dashed rgba(250, 204, 21, 0.25);
+}
+
+.ddBin[data-bin="vidro"] {
+  background: rgba(34, 197, 94, 0.05);
+  border: 1.5px dashed rgba(34, 197, 94, 0.2);
+}
+
+.ddBin[data-bin="metal"] {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1.5px dashed rgba(239, 68, 68, 0.2);
+}
+
+.ddBin[data-bin="eletrônico"] {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1.5px dashed rgba(56, 189, 248, 0.2);
+}
+
+.ddBinIcon {
+  font-size: 1.8rem;
+}
+
+.ddBinLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ddBin[data-bin="papel"] .ddBinLabel {
+  color: #60a5fa;
+}
+
+.ddBin[data-bin="plástico"] .ddBinLabel {
+  color: var(--yellow);
+}
+
+.ddBin[data-bin="vidro"] .ddBinLabel {
+  color: var(--green);
+}
+
+.ddBin[data-bin="metal"] .ddBinLabel {
+  color: #f87171;
+}
+
+.ddBin[data-bin="eletrônico"] .ddBinLabel {
+  color: var(--blue);
+}
+
+/* =========================
+   SCORE
+========================= */
+
+.ddScore {
+  margin-top: 1rem;
+
+  text-align: right;
+
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  color: var(--gray2);
+}
+
+.ddScore span {
+  color: var(--green);
+  font-size: 1.2rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .quiz {
+    padding: 5rem 1.5rem;
+  }
+
+  .quizQuestion {
+    padding: 2rem 1.25rem;
+  }
+
+  .quizNav {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .quizNext {
+    width: 100%;
+    justify-content: center;
+  }
+}

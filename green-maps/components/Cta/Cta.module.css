@@ -1,0 +1,88 @@
+.cta {
+  background: var(--bg3);
+  border-top: 1px solid rgba(25, 228, 111, 0.08);
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(25, 228, 111, 0.06) 0%, transparent 70%);
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.ctaSub {
+  color: var(--gray2);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaActions button{
+    color: #19E46F;
+    border: 2px solid #19E46F;
+    border-radius: 10px;
+    padding: 5px 30px;
+    font-size: 1.2em;
+    font-style: 400;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0 10px;
+    
+}
+
+/* Estilo do botão secundário */
+.btnSecondary {
+  color: #19E46F;
+  border: 2px solid #19E46F;
+  border-radius: 10px;
+  padding: 0; /* Removemos o padding daqui para colocar no link */
+  font-size: 1.2em;
+  font-weight: 400; /* Correção: era font-style */
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 10px;
+  overflow: hidden; /* Garante que o link respeite o border-radius */
+}
+
+/* Ajuste do Link dentro do botão para sumir o azul e preencher o espaço */
+.btnSecondary a {
+  color: inherit;         /* Herda o verde (#19E46F) do botão */
+  text-decoration: none;  /* Remove o sublinhado azul */
+  display: inline-block;  /* Permite aplicar o padding */
+  padding: 5px 30px;      /* O clique do botão passa a ser o tamanho real dele */
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 5rem 1.5rem;
+  }
+}
